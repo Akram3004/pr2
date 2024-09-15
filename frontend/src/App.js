@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import JobDetailPage from './pages/JobDetailPage';
 import ApplyPage from './pages/ApplyPage';
+import { AuthProvider } from './context/AuthContext';
 import HRDashboardPage from './pages/HRDashboardPage';
 import LoginPage from './pages/LoginPage';
 
 function App() {
     return (
         <Router>
+            <AuthProvider>
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/jobs/:id" element={<JobDetailPage />} />
@@ -17,6 +19,7 @@ function App() {
                 <Route path="/hr/dashboard" element={<HRDashboardPage />} />
                 <Route path="/login" element={<LoginPage />} />
             </Routes>
+            </AuthProvider>
         </Router>
     );
 }

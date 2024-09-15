@@ -1,8 +1,11 @@
 // src/components/HRDashboard.js
 import React, { useEffect, useState } from 'react';
 import { fetchApplicants } from '../api/hrApi';
+import { useAuth } from '../context/AuthContext';
+
 
 const HRDashboard = ({ jobId }) => {
+    const {user, logout} = useAuth();
     const [applicants, setApplicants] = useState([]);
 
     useEffect(() => {
